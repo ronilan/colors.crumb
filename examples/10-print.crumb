@@ -1,0 +1,13 @@
+(use "./colors.crumb" {
+  // loop forever
+  (until "stop" {state n ->
+    
+    // print random slash with random color
+    c = (add 16 (remainder (integer (add n (multiply (random) 100))) 216))
+    (print (if (integer (add (random) 0.5)) {<- (color c "╱")} {<- (color c "╲")}))
+
+    // wait to slow down animation
+    (wait 0.001)
+  })
+})
+

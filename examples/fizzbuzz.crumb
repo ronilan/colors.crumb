@@ -1,0 +1,18 @@
+(use "./colors.crumb" {
+  (loop 100 {i -> 
+    i = (add i 1)
+    (if (is (remainder i 15) 0) {
+      (print (bold (color 88 (background 220 "fizzbuzz"))) "\n")
+    } {
+      (if (is (remainder i 3) 0) {
+        (print (color 36 "fizz") "\n")
+      } {
+        (if (is (remainder i 5) 0) {
+          (print (color "#88ddff" "buzz") "\n")
+        } {
+          (print (color (list 255 0 127) (string i)) "\n")
+        })
+      })
+    })
+  })
+})

@@ -1,0 +1,23 @@
+(use "./colors.crumb" {
+
+  table = (map (range 10) {_ y ->
+    <- (map (range 10) {item x ->
+
+        <- (color (add x 1) (string (multiply (add x 1) (add y 1))))
+      })
+
+  })
+
+  print_table = {table ->
+    (map table {row y ->
+      (print (reduce (get row 1 (length row)) {acc item i -> 
+
+          <- (join (string acc) " " (color (add y 1) (string item)))
+
+      } (get row 0)) "\n")
+    })
+  }
+
+  (print_table table)
+
+})
