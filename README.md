@@ -51,7 +51,7 @@ This code
 
 will produce the following:
 
-<img src="./examples-demo.crumb.png" width="450"> 
+<img src="./media/examples-demo.crumb.png" width="450"> 
 
 ## Running Examples
 
@@ -62,7 +62,8 @@ Build:
 docker build -t colors.crumb git@github.com:ronilan/colors.crumb.git#main
 ```
 Run: 
-```docker run --rm -it colors.crumb
+```
+docker run --rm -it colors.crumb
 ```
 
 Or "all in one": 
