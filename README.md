@@ -37,14 +37,21 @@ This code
     (print "  " (underline "underline") "\n")
     (print "  " (inverse "inverse") "\n\n")
 
-    (print "  " (background 166 (underline "Crumb:")) (color "#999999" "a programming language that is") (bold (color "#ff00dd" "simple,")) (bold (color "#00ffdd" "not easy.")) "\n\n")
+    (print 
+      "  " 
+      (background 166 (underline "Crumb:")) 
+      (color "#999999" "a programming language that is") 
+      (bold (color "#ff00dd" "simple,")) 
+      (bold (color "#00ffdd" "not easy.")) 
+      "\n\n"
+    )
 
 })
 ```
 
 will produce the following:
 
-![](examples-demo.crumb)
+<img src="./examples-demo.crumb.png" width="450"> 
 
 ## Running Examples
 
