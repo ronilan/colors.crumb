@@ -62,7 +62,8 @@ Build:
 docker build -t colors.crumb git@github.com:ronilan/colors.crumb.git#main
 ```
 Run: 
-```docker run --rm -it colors.crumb
+```
+docker run --rm -it colors.crumb
 ```
 
 Or "all in one": 
