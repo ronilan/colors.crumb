@@ -98,7 +98,7 @@ This code:
 
 Will produce the following:
 
-<img src="./media/examples-demo.crumb.png" width="450"> 
+<img src="./media/examples_demo.crumb.png" width="450"> 
 
 ## Running Examples
 
