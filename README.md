@@ -57,11 +57,21 @@ will produce the following:
 
 With Docker:
 
-`docker run --rm -it $(docker build -q git@github.com:ronilan/colors.crumb.git#main)`
+Build: `docker build -t colors.crumb git@github.com:ronilan/colors.crumb.git#main`
+Run: `docker run --rm -it colors.crumb`
 
-Then in the shell:
+Or "all in one": `docker run --rm -it $(docker build -q git@github.com:ronilan/colors.crumb.git#main)`
 
-`./crumb examples/10-print.crumb`
+Then in the shell: `./crumb examples/10-print.crumb`
 
+## Local Dev
+
+Clone the repo: `git clone git@github.com:ronilan/colors.crumb.git`
+
+CD into directory: `cd colors.crumb`
+
+Build Crumb interpreter: `chmod +x build-crumb.sh && ./build-crumb.sh`
+
+Run: `./crumb examples/10-print.crumb`
 
 ###### Fabriqué au Canada : Made in Canada 🇨🇦
