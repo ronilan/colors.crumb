@@ -8,9 +8,56 @@
 2. Place it in your Crumb project
 3. Use it.
 
-## Example
+## Examples
 
-This code
+This code:
+
+```
+(use "./colors.crumb" {
+  // loop forever
+  (until "stop" {state n ->
+    
+    // print random slash with random color
+    c = (add 16 (remainder (integer (add n (multiply (random) 100))) 216))
+    (print (if (integer (add (random) 0.5)) {<- (color c "╱")} {<- (color c "╲")}))
+
+    // wait to slow down animation
+    (wait 0.001)
+  })
+})
+
+```
+will produce the following:
+
+<img src="./media/examples_10-print.crumb.png" width="450"> 
+
+This code:
+
+```
+(use "./colors.crumb" {
+  (loop 100 {i -> 
+    i = (add i 1)
+    (if (is (remainder i 15) 0) {
+      (print (bold (color 88 (background 220 "fizzbuzz"))) "\n")
+    } {
+      (if (is (remainder i 3) 0) {
+        (print (color 36 "fizz") "\n")
+      } {
+        (if (is (remainder i 5) 0) {
+          (print (color "#88ddff" "buzz") "\n")
+        } {
+          (print (color (list 255 0 127) (string i)) "\n")
+        })
+      })
+    })
+  })
+})
+```
+will produce the following:
+
+<img src="./media/examples_fizzbuzz.crumb.png" width="450"> 
+
+This code:
 
 ```
 (use "./colors.crumb" {
@@ -49,13 +96,13 @@ This code
 })
 ```
 
-will produce the following:
+Will produce the following:
 
 <img src="./media/examples-demo.crumb.png" width="450"> 
 
 ## Running Examples
 
-### With Docker:
+With Docker:
 
 Build: 
 ```
@@ -76,7 +123,7 @@ Then in the shell:
 ./crumb examples/10-print.crumb
 ```
 
-### Locally
+## Local Dev
 
 Clone the repo: 
 ```
