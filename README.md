@@ -55,7 +55,7 @@ will produce the following:
 
 ## Running Examples
 
-With Docker:
+### With Docker:
 
 Build: 
 ```
@@ -76,7 +76,7 @@ Then in the shell:
 ./crumb examples/10-print.crumb
 ```
 
-## Local Dev
+### Locally
 
 Clone the repo: 
 ```
