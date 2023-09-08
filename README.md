@@ -102,7 +102,7 @@ Will produce the following:
 
 ## Running Examples
 
-With Docker:
+### With Docker:
 
 Build: 
 ```
@@ -123,7 +123,7 @@ Then in the shell:
 ./crumb examples/10-print.crumb
 ```
 
-## Local Dev
+### Locally
 
 Clone the repo: 
 ```
@@ -144,5 +144,123 @@ Run:
 ```
 ./crumb examples/10-print.crumb
 ```
+
+## Reference 
+### Styling
+
+- `(color def str)`
+  - Returns `str` wrapped in color escape codes calculated from `def`.
+  - `def` can be of a any type. Number is assumed ANSI code. String is assumed HEX value. List is assumed RGB.
+  - `def`: `integer`, `string`, `list`.
+  - `str`: `string`
+
+- `(background def str)`
+  - Returns `str` wrapped in background escape codes calculated from `def`.
+  - `def` can be of a any type. Number is assumed ANSI code. String is assumed HEX value. List is assumed RGB.
+  - `def`: `integer`, `string`, `list`.
+  - `str`: `string`
+
+- `(bold str)`
+  - Returns `str` wrapped in bold escape codes.
+  - `str`: `string`
+
+- `(underline str)`
+  - Returns `str` wrapped in underline escape codes.
+  - `str`: `string`
+
+- `(faint str)`
+  - Returns `str` wrapped in faint escape codes.
+  - `str`: `string`
+
+- `(inverse str)`
+  - Returns `str` wrapped in inverse escape codes.
+  - `str`: `string`
+
+### Color Definition Conversion
+
+- `(hex_to_ansi_8 str)`
+  - Returns `integer` ANSI color number most closely matching the HEX color definition.
+  - `str`: `string`
+
+- `(ansi_8_to_hex num)`
+  - Returns `string` HEX color definition matching the ANSI color number.
+  - `num`: `integer`
+
+- `(rgb_to_ansi_8 arr)`
+  - Returns `integer` ANSI color number most closely matching the RGB color definition.
+  - `arr`: `list`
+
+- `(ansi_8_to_rgb num)`
+  - Returns `list` RGB color definition (three numbers between 0 and 255) matching the ANSI color number.
+  - `num`: `integer`
+
+- `(rgb_to_hex arr)`
+  - Returns `string` HEX color definition matching the RGB color definition.
+  - `arr`: `list`
+
+- `(hex_to_rgb str)`
+  - Returns `list` RGB color definition (three numbers between 0 and 255) matching the HEX color definition.
+  - `str`: `string`
+
+### Base Conversions
+
+- `(base_10_to_16 num)`
+  - Returns a string representation of `num` in base 16.
+  - `num`: `integer`
+
+- `(base_10_to_6 num)`
+  - Returns a string representation of `num` in base 6.
+  - `num`: `integer`
+
+- `(base_10_to_2 num)`
+  - Returns a string representation of `num` in base 2.
+  - `num`: `integer`
+
+- `(base_10_to_other num base)`
+  - Returns a string representation of `num` in `base`. `base` must be in range 2 to 16.
+  - `num`: `integer`, `base`: `integer`
+
+- `(base_16_to_10 str)`
+  - Returns an integer derived from `str` in base 16.
+  - `str`: `string`
+
+- `(base_other_to_10 str base)`
+  - Returns an integer derived from `str` in `base`. `base` must be in range 2 to 16.
+  - `str`: `string`, `base`: `integer`
+
+### Utility
+
+- `(ansi_from_color_definition def)`
+  - ANSI color calculated from `def`.
+  - `def` can be of a any type. Number is assumed ANSI code. String is assumed HEX value. List is assumed RGB.
+  - `def`: `integer`, `string`, `list`.
+  - `str`: `string`
+
+- `(hex_char_to_dec str)`
+  - Returns an integer derived from `str` in base 16.
+  - `str`: `string`
+
+- `(dec_to_hex_char num)`
+  - Returns a string representation of `num` in base 16.
+  - `num`: `integer`
+
+### String Utility
+
+- `(string_to_list str)`
+  - Returns `list` containing each character of the string.
+  - `str`: `string`
+
+- `(list_to_string arr)`
+  - Returns `string` a reduction of the array.
+  - `arr`: `list`
+
+- `(string_reverse str)`
+  - Returns `str` reversed.
+  - `str`: `string`
+
+- `(string_pad_start str length char)`
+  - Returns `str` of length `count` padded at the start with `char` as many times as needed.
+  - `str`: `string`
+
 
 ###### Fabriqué au Canada : Made in Canada 🇨🇦
