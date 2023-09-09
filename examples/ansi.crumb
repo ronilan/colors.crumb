@@ -1,0 +1,11 @@
+(use "./colors.crumb" {
+  // loop forever
+  (until "stop" {state n ->
+
+    c = (remainder n 255)
+    (print (background c (string c)) "\n")
+
+    (wait 0.1)
+  })
+})
+

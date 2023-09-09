@@ -1,0 +1,10 @@
+(use "./colors.crumb" {
+  // loop forever
+  (until "stop" {state n ->
+
+    c = (ansi_8_to_rgb (add 16 (remainder n 231)))
+    (print (background c (join (string (get c 0)) " " (string (get c 1)) " " (string (get c 2)))) "\n")
+
+    (wait 0.1)
+  })
+})
