@@ -1,10 +1,11 @@
 #!/bin/sh
 
-sha="9e5bdf26a608ab1c6f3bc5afc7b8daf17afde153"
+tag="v0.0.1"
+into=".tmp~crumb~inflate"
 
-git clone https://github.com/liam-ilan/crumb.git ~~temp 
-cd ~~temp || exit
-git reset --hard $sha
+git clone --branch $tag --depth 1 https://github.com/liam-ilan/crumb.git $into
+cd $into || exit
 gcc src/*.c -Wall -lm -o crumb 
 cd .. 
-mv ./~~temp/crumb crumb && rm -rf ~~temp
+mv ./$into/crumb crumb
+rm -rf $into
