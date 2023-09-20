@@ -2,6 +2,8 @@
 
 `colors.crumb` is a [Crumb](https://github.com/liam-ilan/crumb) usable providing basic terminal styling functions as well as access to RGB, HEX, ANSI conversion functions.
 
+Styling can be applied to strings and also to strings within lists.
+
 ## Usage
 
 1. Download https://github.com/ronilan/colors.crumb/blob/main/colors.crumb
@@ -120,7 +122,7 @@ docker run --rm -it $(docker build -q git@github.com:ronilan/colors.crumb.git#ma
 
 Then in the shell: 
 ```
-./crumb examples/10-print.crumb
+./crumb examples/demo.crumb
 ```
 
 ### Locally

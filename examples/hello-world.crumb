@@ -1,3 +1,6 @@
 (use "./colors.crumb" {
-  (print (background (list 255 0 127) (color 218 "hello world")) "\n")
+  // style a string
+  (print (color 134 "hello world") "\n")
+  // style the strings inside a list
+  (print (background (list 255 0 127) (list "hello" "world")) "\n")
 })
