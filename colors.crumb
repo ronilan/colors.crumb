@@ -176,23 +176,50 @@ ansi_from_color_definition = { color_definition ->
   })
 }
 
-color = { color_definition str ->
-  <- (if (is (type str) "string"){
-    <- (join "\e[38;5;" (string (ansi_from_color_definition color_definition)) "m" str "\e[0;0m" )
+styling = { to_style open close ->
+  <- (if (is (type to_style) "string"){
+    <- (join open to_style close)
   } {
-    <- str
+    <- (if (is (type to_style) "list"){
+      <- (map to_style {item index -> 
+        <- (styling item open close)
+      })
+    }{
+      <- ""
+    })
   })
 }
 
-background = { color_definition str ->
-  <- (if (is (type str) "string"){
-    <- (join "\e[48;5;" (string (ansi_from_color_definition color_definition)) "m" str "\e[0;0m" )
+color = { color_definition to_color ->
+  <- (if (is (type to_color) "string"){
+    <- (join "\e[38;5;" (string (ansi_from_color_definition color_definition)) "m" to_color "\e[0;0m" )
   } {
-    <- str
+    <- (if (is (type to_color) "list"){
+      <- (map to_color {item index -> 
+        <- (color color_definition item)
+      })
+    }{
+      <- ""
+    })
   })
 }
 
-bold = { str -> <- (join "\e[1m" str "\e[21m") }
-faint = { str -> <- (join "\e[2m" str "\e[22m") }
-inverse = { str -> <- (join "\e[7m" str "\e[27m") }
-underline = { str -> <- (join "\e[4m" str "\e[24m") }
+background = { color_definition to_color ->
+  <- (if (is (type to_color) "string"){
+    <- (join "\e[48;5;" (string (ansi_from_color_definition color_definition)) "m" to_color "\e[0;0m" )
+  } {
+    <- (if (is (type to_color) "list"){
+      <- (map to_color {item index -> 
+        <- (background color_definition item)
+      })
+    }{
+      <- ""
+    })
+  })
+}
+
+bold = { to_style -> <- (styling to_style "\e[1m" "\e[21m") }
+faint = { to_style -> <- (styling to_style "\e[2m" "\e[22m") }
+underline = { to_style -> <- (styling to_style "\e[4m" "\e[24m") }
+inverse = { to_style -> <- (styling to_style "\e[7m" "\e[27m") }
+

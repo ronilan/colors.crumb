@@ -1,0 +1,33 @@
+(use "./colors.crumb" {
+  printable = { thing ->
+    <- (if (is (type thing) "string"){
+      <- thing
+    } {
+      <- (if (is (type thing) "list"){
+        <- (reduce thing {accum item _ -> 
+          <- (join accum (printable item))
+        } "")
+      }{
+        <- ""
+      })
+    })
+  }
+
+  to_color = { ansi -> 
+    <- (list
+      "\n"
+      (list "\nansi is:" ansi "hex code is:" (string (ansi_8_to_hex ansi)) )
+      "\n"
+    )}
+
+  // loop forever
+  (until "stop" {state n ->
+
+    c = (remainder n 255)
+    colored = (bold (color c (to_color c)))
+    (print (printable colored))
+    colored = (underline (faint (background c (to_color c))))
+    (print (printable colored))
+    (wait 0.1)
+  })
+})
