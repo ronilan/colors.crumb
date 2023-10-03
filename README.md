@@ -7,7 +7,7 @@ Styling can be applied to strings and also to strings within lists.
 ## Usage
 
 1. Download https://github.com/ronilan/colors.crumb/blob/main/colors.crumb
-2. Place it in your Crumb project
+2. Place it in your Crumb project. (see: [Crumb Template](https://github.com/liam-ilan/crumb-template) for an easy starter.)
 3. Use it.
 
 ## Examples
